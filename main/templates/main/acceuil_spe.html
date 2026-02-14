@@ -1,0 +1,64 @@
+<!-- Section Spécialités -->
+<section id="specialites" class="bg-gray-50 py-24">
+  <div class="max-w-7xl mx-auto px-6 text-center">
+
+    <!-- Titre -->
+    <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-6">
+      Nos <span class="text-yellow-400">Services</span>
+    </h2>
+    <p class="text-gray-700 text-lg md:text-xl mb-12 mx-auto max-w-2xl leading-relaxed">
+      Découvrez nos domaines d’expertise médicale, où notre équipe dévouée assure des soins de qualité, personnalisés et adaptés à vos besoins, 
+      dans un cadre moderne et chaleureux pour votre bien-être.
+    </p>
+
+    <!-- Grille des spécialités -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+      {% for specialite in specialites %}
+      <div class="relative group bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transform hover:scale-105 transition duration-500">
+
+        <!-- Image avec overlay et effet luxueux -->
+        <div class="relative h-64 overflow-hidden rounded-t-3xl">
+          <img src="{{ specialite.image.url }}" alt="{{ specialite.nom }}" 
+               class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-black/10 to-transparent group-hover:from-black/50 group-hover:via-black/20 transition duration-500"></div>
+        </div>
+
+        <!-- Contenu -->
+        <div class="p-6 flex flex-col justify-between h-64">
+          <div>
+            <h3 class="text-xl font-bold text-gray-900 mb-2">{{ specialite.nom }}</h3>
+            <p class="text-gray-600 text-base mb-4">{{ specialite.description|truncatewords:10 }}</p>
+          </div>
+
+          <!-- Bouton En savoir plus -->
+          <a href="#" 
+             class="inline-flex items-center mt-auto text-yellow-600 font-semibold hover:text-yellow-400 transition duration-300">
+            En savoir plus 
+            <!-- Heroicon SVG pour flèche -->
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </a>
+        </div>
+
+        <!-- Badge Expert -->
+        <div class="absolute top-4 right-4 bg-yellow-400 text-gray-900 font-semibold text-xs px-3 py-1 rounded-full shadow transform transition duration-300 group-hover:scale-110">
+          Expert
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+    <!-- Bouton Tous les spécialités -->
+    <div class="mt-12 flex justify-center">
+      <a href="{% url 'services' %}" 
+         class="inline-flex items-center px-6 py-3 bg-yellow-400 text-gray-900 font-semibold rounded-2xl shadow-lg hover:bg-yellow-300 hover:shadow-xl transition duration-300">
+        Voir toutes les spécialités
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+        </svg>
+      </a>
+    </div>
+
+  </div>
+</section>
