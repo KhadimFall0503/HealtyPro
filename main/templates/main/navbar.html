@@ -1,3 +1,4 @@
+{% load static %}
 <!-- Navbar professionnelle moderne -->
 <nav class="bg-gradient-to-r from-teal-600 to-green-500 shadow-lg fixed w-full z-50">
   <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10">
@@ -6,7 +7,7 @@
       <!-- Logo -->
       <div class="flex items-center space-x-3">
         <div class="bg-white rounded-full p-2">
-          <img src="images/logo.png" alt="HealthPro" class="h-10 w-10 object-contain">
+          <img src="{% static 'main/mon_logo.png' %}" alt="HealthPro" class="h-10 w-10 object-contain">
         </div>
         <div>
           <h1 class="text-white text-2xl font-bold">HealthPro</h1>
@@ -19,7 +20,7 @@
         <li><a href="{% url 'index' %}" class="hover:text-yellow-300 transition">Accueil</a></li>
       <li>
   <a href="{% url 'services' %}" class="hover:text-yellow-300 transition">Services</a></li>
-        <li><a href="doctors.html" class="hover:text-yellow-300 transition">Médecins</a></li>
+        <li><a href="{% url 'medecins' %}" class="hover:text-yellow-300 transition">Médecins</a></li>
         <li class="relative group">
           <a href="departments.html" class="flex items-center hover:text-yellow-300 transition">
             Départements <i class="fas fa-angle-down ml-1"></i>

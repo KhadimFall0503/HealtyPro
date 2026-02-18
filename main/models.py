@@ -18,3 +18,12 @@ class Service(models.Model):
 
     def __str__(self):
         return self.nom
+class Medecin(models.Model):
+    nom = models.CharField(max_length=100)
+    prenom = models.CharField(max_length=100)
+    specialite = models.ForeignKey(Specialite, on_delete=models.CASCADE)
+    service = models.ForeignKey(Service, on_delete=models.CASCADE)
+    photo = models.ImageField(upload_to='medecins/')
+    
+    def __str__(self):
+        return f"{self.nom} {self.prenom}"

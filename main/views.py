@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView, ListView
-from .models import Specialite, Service
+from .models import Specialite, Service, Medecin
 
 # Create your views here.
 class IndexView(TemplateView):
@@ -29,3 +29,7 @@ class ServiceDetailView(TemplateView):
         service_id = self.kwargs.get('pk')
         context['service'] = Service.objects.get(id=service_id)
         return context
+class MedecinsView(ListView):
+    model = Medecin
+    template_name = 'main/medecins.html'
+    context_object_name = 'medecins'
